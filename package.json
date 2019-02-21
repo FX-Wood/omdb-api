@@ -1,0 +1,23 @@
+{
+  "name": "omdb-api",
+  "version": "0.0.1",
+  "description": "Exploration of server-side api requests",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fx-wood/omdb-api.git"
+  },
+  "author": "FX",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fx-wood/omdb-api/issues"
+  },
+  "homepage": "https://github.com/fx-wood/omdb-api#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
