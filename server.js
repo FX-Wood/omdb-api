@@ -10,8 +10,14 @@ app.use(express.static('static'));
 app.use(express.urlencoded({extended: false}))
 
 app.get('/', function(req, res) {
+    res.render('index')
+})
+
+
+app.post('/', function(req, res) {
+    console.log(req.body.textinput)
     let qs = {
-        s: 'star wars',
+        s: req.body.textinput,
         apikey: process.env.API_KEY
     }
     request({
@@ -20,14 +26,23 @@ app.get('/', function(req, res) {
     }, function (error, response, body) {
         console.log('trying')
         if (!error && response.statusCode == 200) {
+            console.log(response.statusCode, response.body)
             let dataObj = JSON.parse(body);
-            res.render('results', {results: dataObj.Search});
-        } else {
-            console.log(response.statusCode)
-            console.log('fail')
+            console.log(dataObj.Error)
+            if (!dataObj.Error) {
+                res.render('results', {results: dataObj.Search});
+            } else {
+                res.render('error', {error: dataObj})
+            }
+            
+
         }
     });
 });
+
+
+
+
 
 app.listen(process.env.PORT || 3000
     , function() {

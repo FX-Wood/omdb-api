@@ -1,12 +1,12 @@
 <!DOCTYPE>
 <html>
   <head>
-    <title>Star Wars</title>
+    <title>OMDB-Results</title>
   </head>
   <body>
-    <h1>Star Wars</h1>
-    <% results.forEach(function(result) { %>
-      <% include ./partials/result %>
+    <h1>Results</h1>
+    <%  results.forEach(function(result) { %>
+        <% include ./partials/result %>
     <% }); %>
   </body>
 </html>
